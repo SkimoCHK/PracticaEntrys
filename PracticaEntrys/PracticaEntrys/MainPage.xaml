@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticaEntrys.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="AnchorX" Value="0" />
+                <Style.Triggers>
+                    <Trigger  TargetType="Entry"
+                   Property="IsFocused" 
+                   Value="True">
+                        <Setter Property="BackgroundColor" 
+                   Value="Pink" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="LightBlue" >
+        <Grid >
+            <Label Grid.Column="0" Grid.Row="1" FontSize="25" Margin="10,0" Text="Hola mundo" TextColor="Black" />
+            <Entry Grid.Column="0" Grid.Row="2" PlaceholderColor="Black"  Placeholder="Ingrese su nombrexd" />
+
+
+           
+            <Entry Grid.Column="0" Grid.Row="3" Placeholder="Write a text" TextColor ="Black"
+                   PlaceholderColor="Black"
+               x:Name     ="TextEntry" />
+
+            <Button Grid.Column="0" Grid.Row="4" Text ="Pongan camiones"
+                BackgroundColor ="#C39BD3">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button"
+                            Binding   ="{Binding Source={x:Reference TextEntry}, Path=Text.Length}" 
+                            Value     ="0">
+                        <Setter Property="Text"             Value="Hola" />
+                        <Setter Property="BackgroundColor"  Value="#5DADE2" />
+                    </DataTrigger>
+                </Button.Triggers>
+                
+            </Button>
+            <RadioButton  Grid.Column="0" Grid.Row="5" FontSize="24" Content="Hetorosexual" >
+                <RadioButton.Triggers>
+                    <Trigger TargetType="RadioButton" Property="IsChecked" Value="True">
+                        <Setter Property="TextColor" Value="Blue" />
+                        <Setter Property="FontSize" Value="15"/>
+                    </Trigger>
+                </RadioButton.Triggers>
+            </RadioButton>
+            
+            <RadioButton  Grid.Column="0" Grid.Row="6" FontSize="24" Content="Homosexual" >
+                <RadioButton.Triggers>
+                    <Trigger TargetType="RadioButton" Property="IsChecked" Value="True">
+                        <Setter Property="TextColor" Value="Pink" />
+                        <Setter Property="FontSize" Value="15"/>
+                    </Trigger>
+                </RadioButton.Triggers>
+            </RadioButton>
+            <CheckBox Grid.Column="0" Grid.Row="7">
+                <CheckBox.Triggers>
+                    <Trigger TargetType="CheckBox" Property="IsChecked" Value="True" >
+                        <Setter Property="BackgroundColor" Value="Pink" />
+                    </Trigger>
+                </CheckBox.Triggers>
+            </CheckBox>
+            
+
+
+
+
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
